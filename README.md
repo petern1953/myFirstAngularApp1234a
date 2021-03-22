@@ -402,21 +402,29 @@ kódcsere, ngModel, name=:
 
 <div class="row">
   <div class="col-6 offset-3">
-    <form>
+    <!-- <form (ngSubmit)="onSubmit()" #form="ngForm"> -->
+    <form *ngIf="hero">
       <div class="form-group">
-        <label for="">Name</label>
-        <input type="text" class="form-control">
+        <label for="heroName">Name</label>
+        <input id="heroName" [(ngModel)]="hero.name" name="name"
+        type="text" class="form-control"
+        required>
       </div>
       <div class="form-group">
-        <label for="">Address</label>
-        <input type="text" class="form-control">
+        <label for="heroAddress">Address</label>
+        <input id="heroAddress" [(ngModel)]="hero.address" name="address"
+        type="text" class="form-control"
+        required pattern="[A-Za-z0-9-\.]{10,}">
       </div>
       <div class="form-group">
-        <label for="">Superpower</label>
-        <input type="text" class="form-control">
+        <label for="heroPower">Superpower</label>
+        <input id="heroPower" [(ngModel)]="hero.superpower" name="superpower"
+        type="text" class="form-control"
+        required>
       </div>
       <button class="btn btn-success">update</button>
     </form>
+    <pre>{{ hero | json}}</pre>
   </div>
 </div>
 --
