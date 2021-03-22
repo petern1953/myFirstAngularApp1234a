@@ -397,3 +397,35 @@ eddig volt az 1234,
 innentől az 1234a
 Angular - sablon alapú űrlapok 1.
 -------------------------
+30. hero-detail.component.html:
+kódcsere, ngModel, name=:
+
+<div class="row">
+  <div class="col-6 offset-3">
+    <form>
+      <div class="form-group">
+        <label for="">Name</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">Address</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">Superpower</label>
+        <input type="text" class="form-control">
+      </div>
+      <button class="btn btn-success">update</button>
+    </form>
+  </div>
+</div>
+--
+app.module.ts:
+FormsModule
++
+import { FormsModule } from '@angular/forms';
++
+  imports: [ ...
+    FormsModule,
+--
+
