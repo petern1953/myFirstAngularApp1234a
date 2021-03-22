@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-8 offset-2">
+    <input class="form-control" #search (keyup)="0" type="text">
+    <p>{{ search.value }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-8 offset-2">
+    <table class="table table-striped">
+      <thead>
+        <th>#</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Superpower</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hero of heroList | async">
+          <td>{{hero.id}}</td>
+          <td>{{hero.name}}</td>
+          <td>{{hero.address}}</td>
+          <td>{{hero.superpower}}</td>
+          <td>
+            <button (click)="jumpToHero(hero)" class="btn btn-info">details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
