@@ -462,7 +462,7 @@ export class HeroDetailComponent {
      .forEach( value => console.log("Updated hero: ", value) );
   }
 --
-32. hero-detail.component.css
+32. hero-detail.component.scss
 
 .invalid-field {
   color: red;

@@ -24,8 +24,8 @@
         <select id="heroPower" [(ngModel)]="hero.superpower" name="superpower"
         class="form-control"
         required>
-        <option *ngFor="let power of superPowers" [value]="power">{{ power }}</option>
-      </select>
+          <option *ngFor="let power of superPowers" [value]="power">{{ power }}</option>
+        </select>
       </div>
       <button [disabled]="heroForm.form.invalid" type="submit" class="btn btn-success">update</button>
     </form>
