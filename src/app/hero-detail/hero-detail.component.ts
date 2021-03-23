@@ -6,24 +6,31 @@ import { HeroService } from '../service/hero.service';
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.scss']
+  styleUrls: ['./hero-detail.component.scss'],
 })
-export class HeroDetailComponent implements OnInit {
+export class HeroDetailComponent {
   hero: Hero = new Hero();
+  superPowers: Array<string> = [
+    'magnetic',
+    'really smart',
+    'rich',
+    'hard',
+    'biking',
+    'driving',
+    'drinking',
+  ];
 
-  constructor(
-    private ar: ActivatedRoute,
-    private hService: HeroService,
-  ) {
-    this.ar.params.subscribe(params => {
-      this.hService.getOne(params.id)
-        .forEach(hero => {
-          this.hero = hero;
-        });
+  constructor(private ar: ActivatedRoute, private hService: HeroService) {
+    this.ar.params.subscribe((params) => {
+      this.hService.getOne(params.id).forEach((hero) => {
+        this.hero = hero;
+      });
     });
   }
 
-  ngOnInit(): void {
+  onSubmit(): void {
+    this.hService
+      .update(this.hero)
+      .forEach((value) => console.log('Updated hero: ', value));
   }
-
 }
